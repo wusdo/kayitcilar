@@ -351,18 +351,41 @@ h2{
 }
 .contact-mail:hover{color:var(--tungsten)}
 .contact-mail:focus-visible{outline:2px solid var(--tungsten);outline-offset:6px}
-.socials{
-  margin-top:42px;
-  display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
-  font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+/* Instagram kartı (tek sosyal kanal) */
+.ig-card{
+  margin:44px auto 0;
+  max-width:460px;
+  display:flex;align-items:center;gap:16px;
+  text-align:left;text-decoration:none;
+  border:1px solid var(--hair);
+  border-radius:16px;
+  padding:16px 20px;
+  background:var(--ink-2);
+  transition:border-color .25s, transform .25s, background .25s;
 }
-.socials a{
-  color:var(--bone-dim);text-decoration:none;
-  border:1px solid var(--hair);border-radius:100px;
-  padding:9px 20px;
-  transition:color .2s, border-color .2s;
+.ig-card:hover{transform:translateY(-3px);border-color:rgba(224,164,88,.5);background:var(--ink-3)}
+.ig-card:focus-visible{outline:2px solid var(--tungsten);outline-offset:3px}
+.ig-glyph{
+  flex:none;width:48px;height:48px;border-radius:13px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;
+  background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);
 }
-.socials a:hover{color:var(--bone);border-color:var(--bone-dim)}
+.ig-text{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
+.ig-handle{font-size:18px;font-weight:700;font-stretch:108%;color:var(--bone)}
+.ig-sub{font-size:13px;color:var(--bone-dim);line-height:1.4}
+.ig-cta{
+  flex:none;
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+  color:var(--tungsten);
+  transition:transform .25s;
+}
+.ig-card:hover .ig-cta{transform:translateX(3px)}
+@media(max-width:520px){
+  .ig-card{flex-wrap:wrap;text-align:center;justify-content:center}
+  .ig-text{flex:1 1 100%;align-items:center}
+  .ig-cta{flex:1 1 100%}
+}
 
 footer{
   border-top:1px solid var(--hair);
