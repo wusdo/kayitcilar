@@ -32,6 +32,23 @@
   --pad: clamp(20px, 4vw, 56px);  /* yatay kenar boşluğu */
 }
 
+/* Açık mod — sağ üstteki tema düğmesiyle html[data-theme="light"] olur */
+html[data-theme="light"]{
+  --ink:#EFEBE2;          /* kağıt arkaplan */
+  --ink-2:#FBF9F4;        /* kart arkaplanı */
+  --ink-3:#E4DECF;        /* hover arkaplanı */
+  --bone:#1A1A1F;         /* ana metin (mürekkep) */
+  --bone-dim:#5F5B51;     /* ikincil metin */
+  --rec:#E5322B;
+  --tungsten:#A56A14;
+  --hair:rgba(26,26,31,.16);
+}
+/* Açık modda koyu cam yüzeyleri tersine çevir */
+html[data-theme="light"] nav ul,
+html[data-theme="light"] .ctrl{background:rgba(255,255,255,.72)}
+html[data-theme="light"] .frame::after{background:rgba(255,255,255,.55);color:#1A1A1F;border-color:rgba(26,26,31,.4)}
+html[data-theme="light"] .hud .corner{border-color:rgba(26,26,31,.4)}
+
 /* ---------- 2. Reset + body ---------- */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -43,6 +60,7 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
+  transition:background .4s ease, color .4s ease;
 }
 ::selection{background:var(--rec);color:var(--ink)}
 
@@ -121,7 +139,35 @@ nav ul{
 nav a{color:var(--bone-dim);text-decoration:none;transition:color .2s;text-transform:lowercase}
 nav a:hover,nav a:focus-visible{color:var(--bone)}
 nav a:focus-visible{outline:1px solid var(--tungsten);outline-offset:4px}
-@media(max-width:680px){nav{padding-top:54px}nav ul{gap:14px;padding:8px 16px;font-size:11px}}
+@media(max-width:680px){nav{padding-top:72px}nav ul{gap:14px;padding:8px 16px;font-size:11px}}
+
+/* ---------- 5b. Sağ üst kontroller: dil + tema ---------- */
+.controls{
+  position:fixed;top:40px;right:var(--pad);
+  z-index:130;
+  display:flex;gap:8px;
+}
+.ctrl{
+  font-family:var(--mono);font-size:12px;letter-spacing:.06em;
+  color:var(--bone-dim);
+  background:rgba(14,14,16,.6);
+  backdrop-filter:blur(10px);
+  border:1px solid var(--hair);
+  border-radius:100px;
+  height:34px;min-width:38px;
+  padding:0 13px;
+  display:inline-flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  transition:color .2s, border-color .2s, background .2s;
+}
+.ctrl:hover{color:var(--bone);border-color:var(--bone-dim)}
+.ctrl:focus-visible{outline:1px solid var(--tungsten);outline-offset:3px}
+#theme-toggle{font-size:15px;line-height:1}
+/* sağ üst köşeyi kontrollere bırak: HUD'un sağ-üst etiketini gizle */
+.hud-top .hud-meta-r{display:none}
+@media(max-width:680px){
+  .controls{top:16px;right:16px}
+}
 
 /* ---------- 6. Hero ---------- */
 .hero{
@@ -281,6 +327,11 @@ h2{
   background-position:center;
   border:0;width:100%;         /* <button> olarak da kullanılabilsin */
   cursor:pointer;
+}
+/* Mobilde sinemaskop fazla kırpıyor; YouTube kapakları 16:9 olduğu için
+   dar ekranda kareyi 16:9'a açıyoruz -> kapak net ve tam dolu görünür. */
+@media(max-width:680px){
+  .frame{aspect-ratio:16/9}
 }
 /* ortadaki ▶ oynat tuşu */
 .frame::after{

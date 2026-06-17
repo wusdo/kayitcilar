@@ -13,8 +13,25 @@
 
 <!-- Tüm görsel tasarım css/styles.css içinde -->
 <link rel="stylesheet" href="css/styles.css">
+
+<!-- Tema/dil tercihini boyamadan önce uygula (titreme olmasın) -->
+<script>
+  try{
+    var t = localStorage.getItem('kc-theme');
+    if(t){ document.documentElement.setAttribute('data-theme', t); }
+    var l = localStorage.getItem('kc-lang');
+    if(l){ document.documentElement.setAttribute('lang', l); }
+  }catch(e){}
+</script>
 </head>
 <body>
+
+<!-- ============ Sağ üst kontroller: dil + tema ============
+     İkisi de js/main.js tarafından yönetilir; tercih localStorage'da tutulur. -->
+<div class="controls" role="group" aria-label="Site ayarları">
+  <button id="lang-toggle" class="ctrl" type="button">EN</button>
+  <button id="theme-toggle" class="ctrl" type="button" aria-label="Temayı değiştir">☾</button>
+</div>
 
 <!-- ============ Viewfinder HUD (vizör arayüzü) ============
      Köşe çentikleri, REC göstergesi + akan timecode, sahne etiketi.
@@ -35,26 +52,26 @@
 <!-- ============ Navigasyon ============ -->
 <nav aria-label="Site gezinmesi">
   <ul>
-    <li><a href="#isler">işler</a></li>
-    <li><a href="#hakkimizda">hakkımızda</a></li>
-    <li><a href="#hizmetler">hizmetler</a></li>
-    <li><a href="#iletisim">iletişim</a></li>
+    <li><a href="#isler" data-i18n="nav.works">işler</a></li>
+    <li><a href="#hakkimizda" data-i18n="nav.about">hakkımızda</a></li>
+    <li><a href="#hizmetler" data-i18n="nav.services">hizmetler</a></li>
+    <li><a href="#iletisim" data-i18n="nav.contact">iletişim</a></li>
   </ul>
 </nav>
 
 <!-- ============ Hero (açılış ekranı) ============ -->
 <header class="hero" data-scene="SCENE 01 — AÇILIŞ">
-  <p class="hero-eyebrow">prodüksiyon ekibi · istanbul</p>
+  <p class="hero-eyebrow" data-i18n="hero.eyebrow">prodüksiyon ekibi · istanbul</p>
   <h1>kayıt<span class="stroke">çılar</span></h1>
-  <p class="hero-sub">
+  <p class="hero-sub" data-i18n="hero.sub">
     Setin arkasındaki kamera biziz. Reklam setlerinin <strong>backstage'ini sinematik bir dille</strong> kaydeden,
     kendi işini de çeken bir prodüksiyon topluluğuyuz. Kayıt bizde hep açık.
   </p>
   <div class="hero-cta">
-    <a class="btn btn-rec" href="#iletisim">çekime başlayalım</a>
-    <a class="btn btn-ghost" href="#isler">işlerimize bak</a>
+    <a class="btn btn-rec" href="#iletisim" data-i18n="hero.cta1">çekime başlayalım</a>
+    <a class="btn btn-ghost" href="#isler" data-i18n="hero.cta2">işlerimize bak</a>
   </div>
-  <span class="hero-scroll">aşağı kaydır</span>
+  <span class="hero-scroll" data-i18n="hero.scroll">aşağı kaydır</span>
 </header>
 
 <!-- ============ SCENE 02 — İşler (video kartları) ============
@@ -65,8 +82,8 @@
      data-cover boşsa .f1–.f3 gradient'i kapak yerine fallback olur. -->
 <section id="isler" data-scene="SCENE 02 — SEÇİLİ İŞLER">
   <div class="sec-head reveal">
-    <span class="slate">02 / SEÇİLİ İŞLER</span>
-    <h2>vizörden geçenler</h2>
+    <span class="slate" data-i18n="works.slate">02 / SEÇİLİ İŞLER</span>
+    <h2 data-i18n="works.h2">vizörden geçenler</h2>
   </div>
   <div class="works">
 
@@ -77,10 +94,10 @@
               data-youtube-id="Wey2H6wO_fQ"
               data-cover="https://i.ytimg.com/vi/Wey2H6wO_fQ/maxresdefault.jpg"
               aria-label="Digiturk backstage — videoyu oynat"></button>
-      <div class="slatebar"><div>yönetmen<b>Derhan &amp; Irmak</b></div><div>müşteri<b>Digiturk</b></div><div>yapımcı<b>Roots</b></div></div>
+      <div class="slatebar"><div><span data-i18n="role.director">yönetmen</span><b>Derhan &amp; Irmak</b></div><div><span data-i18n="role.client">müşteri</span><b>Digiturk</b></div><div><span data-i18n="role.producer">yapımcı</span><b>Roots</b></div></div>
       <div class="work-title">
         <h3>digiturk</h3>
-        <p>Reklam seti backstage çekimi</p>
+        <p data-i18n="work.backstage">Reklam seti backstage çekimi</p>
       </div>
     </div>
 
@@ -91,10 +108,10 @@
               data-youtube-id="hyCHOlKH2GU"
               data-cover="https://i.ytimg.com/vi/hyCHOlKH2GU/maxresdefault.jpg"
               aria-label="Akkök Holding 19 Mayıs — videoyu oynat"></button>
-      <div class="slatebar"><div>yönetmen<b>Derhan &amp; Irmak</b></div><div>müşteri<b>Akkök Holding</b></div><div>ajans<b>How to?</b></div></div>
+      <div class="slatebar"><div><span data-i18n="role.director">yönetmen</span><b>Derhan &amp; Irmak</b></div><div><span data-i18n="role.client">müşteri</span><b>Akkök Holding</b></div><div><span data-i18n="role.agency">ajans</span><b>How to?</b></div></div>
       <div class="work-title">
         <h3>akkök holding — 19 mayıs</h3>
-        <p>Reklam çekimi — başrolde milli sporcu Buse Çavuşoğlu</p>
+        <p data-i18n="work.akkok">Reklam çekimi — başrolde milli sporcu Buse Çavuşoğlu</p>
       </div>
     </div>
 
@@ -105,10 +122,10 @@
               data-youtube-id="RrkE2DzBL_Y"
               data-cover="https://i.ytimg.com/vi/RrkE2DzBL_Y/maxresdefault.jpg?v=2"
               aria-label="Tatilbudur backstage — videoyu oynat"></button>
-      <div class="slatebar"><div>yönetmen<b>Derhan &amp; Irmak</b></div><div>müşteri<b>Tatilbudur</b></div><div>yapımcı<b>Multivitamin</b></div></div>
+      <div class="slatebar"><div><span data-i18n="role.director">yönetmen</span><b>Derhan &amp; Irmak</b></div><div><span data-i18n="role.client">müşteri</span><b>Tatilbudur</b></div><div><span data-i18n="role.producer">yapımcı</span><b>Multivitamin</b></div></div>
       <div class="work-title">
         <h3>tatilbudur</h3>
-        <p>Reklam seti backstage çekimi</p>
+        <p data-i18n="work.backstage">Reklam seti backstage çekimi</p>
       </div>
     </div>
 
@@ -118,36 +135,36 @@
 <!-- ============ SCENE 03 — Hakkımızda ============ -->
 <section id="hakkimizda" data-scene="SCENE 03 — HAKKIMIZDA">
   <div class="sec-head reveal">
-    <span class="slate">03 / KİMİZ</span>
-    <h2>Ekip, Set, Kayıt</h2>
+    <span class="slate" data-i18n="about.slate">03 / KİMİZ</span>
+    <h2 data-i18n="about.h2">Ekip, Set, Kayıt</h2>
   </div>
   <div class="about-grid">
     <div class="reveal">
-      <p>
+      <p data-i18n="about.p1">
         kayıtçılar, reklam prodüksiyonunun en ham anlarına tutkun kişilerin bir araya geldiği bir topluluk.
         Set kurulurken, ışık patlarken, yönetmen "kestik" derken — <strong>asıl hikâyenin kamera arkasında
         yaşandığına</strong> inanıyoruz ve onu sinema diliyle kaydediyoruz.
       </p>
-      <p>
+      <p data-i18n="about.p2">
         Backstage işin kalbimiz; ama freelance olarak <strong>reklam, tanıtım ve marka videoları</strong> da
         çekiyoruz. Çevik bir topluluk olmanın hızıyla, büyük prodüksiyon disipliniyle çalışıyoruz: konseptten kurguya,
         renkten teslime kadar her kare bizden geçiyor.
       </p>
-      <p>
+      <p data-i18n="about.p3">
         Topluluk gibi çalışıyoruz — markalarla değil, insanlarla iş yapıyoruz.
       </p>
     </div>
     <!-- Disiplin kartları: topluluğun uzmanlık alanları -->
     <div class="crew reveal">
       <div class="crew-card">
-        <span class="role">Disiplin</span>
-        <p class="name">kamera &amp; görüntü</p>
-        <p>Vizörden bakan göz. Kompozisyon, ışık ve o "tam anı" yakalama refleksi.</p>
+        <span class="role" data-i18n="about.discipline">Disiplin</span>
+        <p class="name" data-i18n="about.craft1">kamera &amp; görüntü</p>
+        <p data-i18n="about.craft1desc">Vizörden bakan göz. Kompozisyon, ışık ve o "tam anı" yakalama refleksi.</p>
       </div>
       <div class="crew-card">
-        <span class="role">Disiplin</span>
-        <p class="name">kurgu &amp; renk</p>
-        <p>Ham kareyi hikâyeye çeviren el. Ritim, ses tasarımı ve color grade.</p>
+        <span class="role" data-i18n="about.discipline">Disiplin</span>
+        <p class="name" data-i18n="about.craft2">kurgu &amp; renk</p>
+        <p data-i18n="about.craft2desc">Ham kareyi hikâyeye çeviren el. Ritim, ses tasarımı ve color grade.</p>
       </div>
     </div>
   </div>
@@ -156,27 +173,27 @@
 <!-- ============ SCENE 04 — Hizmetler ============ -->
 <section id="hizmetler" data-scene="SCENE 04 — HİZMETLER">
   <div class="sec-head reveal">
-    <span class="slate">04 / NE YAPIYORUZ</span>
-    <h2>kayıt açık, üç koldan</h2>
+    <span class="slate" data-i18n="svc.slate">04 / NE YAPIYORUZ</span>
+    <h2 data-i18n="svc.h2">kayıt açık, üç koldan</h2>
   </div>
   <div class="services">
     <article class="svc reveal">
       <div class="tape"></div>
-      <h3>sinematik backstage</h3>
-      <p>Reklam setlerinin kamera arkasını belgesel-sinema karışımı bir dille çekiyoruz. Ekibin enerjisi, setin kaosu, o anın gerçeği — paketlenmiş değil, yaşanmış.</p>
-      <div class="fmt"><span>reels / kısa</span><span>uzun kesim</span><span>set fotoğrafı</span></div>
+      <h3 data-i18n="svc1.title">sinematik backstage</h3>
+      <p data-i18n="svc1.desc">Reklam setlerinin kamera arkasını belgesel-sinema karışımı bir dille çekiyoruz. Ekibin enerjisi, setin kaosu, o anın gerçeği — paketlenmiş değil, yaşanmış.</p>
+      <div class="fmt"><span data-i18n="svc1.f1">reels / kısa</span><span data-i18n="svc1.f2">uzun kesim</span><span data-i18n="svc1.f3">set fotoğrafı</span></div>
     </article>
     <article class="svc reveal">
       <div class="tape"></div>
-      <h3>reklam &amp; tanıtım filmi</h3>
-      <p>Marka ve ürün videoları: konsept geliştirme, çekim, kurgu ve renk dahil uçtan uca prodüksiyon. Çevik topluluk, hızlı teslim, sinematik sonuç.</p>
-      <div class="fmt"><span>ürün</span><span>marka filmi</span><span>sosyal medya</span></div>
+      <h3 data-i18n="svc2.title">reklam &amp; tanıtım filmi</h3>
+      <p data-i18n="svc2.desc">Marka ve ürün videoları: konsept geliştirme, çekim, kurgu ve renk dahil uçtan uca prodüksiyon. Çevik topluluk, hızlı teslim, sinematik sonuç.</p>
+      <div class="fmt"><span data-i18n="svc2.f1">ürün</span><span data-i18n="svc2.f2">marka filmi</span><span data-i18n="svc2.f3">sosyal medya</span></div>
     </article>
     <article class="svc reveal">
       <div class="tape"></div>
-      <h3>freelance çekim</h3>
-      <p>Etkinlik, mekân, müzik, portre... Kameranın gerektiği her yerdeyiz. Tek günlük işlerden uzun soluklu projelere esnek çalışıyoruz.</p>
-      <div class="fmt"><span>etkinlik</span><span>klip</span><span>mekân tanıtımı</span></div>
+      <h3 data-i18n="svc3.title">freelance çekim</h3>
+      <p data-i18n="svc3.desc">Etkinlik, mekân, müzik, portre... Kameranın gerektiği her yerdeyiz. Tek günlük işlerden uzun soluklu projelere esnek çalışıyoruz.</p>
+      <div class="fmt"><span data-i18n="svc3.f1">etkinlik</span><span data-i18n="svc3.f2">klip</span><span data-i18n="svc3.f3">mekân tanıtımı</span></div>
     </article>
   </div>
 </section>
@@ -187,9 +204,9 @@
      profil adreslerinle değiştir. -->
 <section id="iletisim" class="contact" data-scene="SCENE 05 — İLETİŞİM">
   <div class="reveal">
-    <p class="hero-eyebrow" style="text-align:center">05 / İLETİŞİM</p>
-    <h2>aklında bir proje mi var?</h2>
-    <p>Backstage, reklam filmi ya da bambaşka bir fikir — yaz, konuşalım. Genelde 24 saat içinde dönüyoruz.</p>
+    <p class="hero-eyebrow" style="text-align:center" data-i18n="contact.slate">05 / İLETİŞİM</p>
+    <h2 data-i18n="contact.h2">aklında bir proje mi var?</h2>
+    <p data-i18n="contact.p">Backstage, reklam filmi ya da bambaşka bir fikir — yaz, konuşalım. Genelde 24 saat içinde dönüyoruz.</p>
     <a class="contact-mail" href="mailto:merhaba@kayitcilar.com">merhaba@kayitcilar.com</a>
 
     <!-- Instagram kartı: tek sosyal kanalımız. Tüm kart tıklanabilir bir linktir. -->
@@ -205,17 +222,17 @@
       </span>
       <span class="ig-text">
         <span class="ig-handle">@kayitcilar</span>
-        <span class="ig-sub">kamera arkası, set anları ve işlerimiz — günlük olarak Instagram'da</span>
+        <span class="ig-sub" data-i18n="contact.ig">kamera arkası, set anları ve işlerimiz — günlük olarak Instagram'da</span>
       </span>
-      <span class="ig-cta" aria-hidden="true">takip et →</span>
+      <span class="ig-cta" aria-hidden="true" data-i18n="contact.follow">takip et →</span>
     </a>
   </div>
 </section>
 
 <!-- ============ Footer ============ -->
 <footer>
-  <span>© 2026 kayıtçılar — istanbul</span>
-  <span>kayıt her zaman açık ●</span>
+  <span data-i18n="footer.left">© 2026 kayıtçılar — istanbul</span>
+  <span data-i18n="footer.right">kayıt her zaman açık ●</span>
 </footer>
 
 <!-- Tüm etkileşimler js/main.js içinde (defer ile DOM hazır olunca çalışır) -->
