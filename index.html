@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>kayıtçılar — setin arkasındaki kamera</title>
-<meta name="description" content="kayıtçılar: reklam setlerinin backstage'ini sinematik dille kaydeden iki kişilik prodüksiyon ekibi. Freelance video çekimi, kamera arkası, reklam prodüksiyonu.">
+<meta name="description" content="kayıtçılar: reklam setlerinin backstage'ini sinematik dille kaydeden bir prodüksiyon topluluğu. Freelance video çekimi, kamera arkası, reklam prodüksiyonu.">
 
 <!-- Fontlar: Archivo (başlıklar/gövde) + IBM Plex Mono (HUD/etiketler) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,9 +35,9 @@
 <!-- ============ Navigasyon ============ -->
 <nav aria-label="Site gezinmesi">
   <ul>
+    <li><a href="#isler">işler</a></li>
     <li><a href="#hakkimizda">hakkımızda</a></li>
     <li><a href="#hizmetler">hizmetler</a></li>
-    <li><a href="#isler">işler</a></li>
     <li><a href="#iletisim">iletişim</a></li>
   </ul>
 </nav>
@@ -48,7 +48,7 @@
   <h1>kayıt<span class="stroke">çılar</span></h1>
   <p class="hero-sub">
     Setin arkasındaki kamera biziz. Reklam setlerinin <strong>backstage'ini sinematik bir dille</strong> kaydeden,
-    kendi işini de çeken iki kişilik bir ekip. Kayıt bizde hep açık.
+    kendi işini de çeken bir prodüksiyon topluluğuyuz. Kayıt bizde hep açık.
   </p>
   <div class="hero-cta">
     <a class="btn btn-rec" href="#iletisim">çekime başlayalım</a>
@@ -57,53 +57,106 @@
   <span class="hero-scroll">aşağı kaydır</span>
 </header>
 
-<!-- ============ Letterbox ayraç (sinemaskop bant) ============ -->
-<div class="letterbox" aria-hidden="true">
-  <span>kamera arkası · ham kare · color öncesi</span>
-</div>
-
-<!-- ============ SCENE 02 — Hakkımızda ============ -->
-<section id="hakkimizda" data-scene="SCENE 02 — HAKKIMIZDA">
+<!-- ============ SCENE 02 — İşler (video kartları) ============
+     Her kartta .frame bir <button>'dır ve tıkla-oynat için:
+       data-youtube-id : oynatılacak videonun YouTube ID'si
+                         (örn https://youtu.be/AbCdEf12345 -> AbCdEf12345)
+       data-cover      : (opsiyonel) kapak görseli, örn assets/kapak1.jpg
+     data-cover boşsa .f1–.f3 gradient'i kapak yerine fallback olur. -->
+<section id="isler" data-scene="SCENE 02 — SEÇİLİ İŞLER">
   <div class="sec-head reveal">
-    <span class="slate">02 / KİMİZ</span>
-    <h2>iki arkadaş, bir set, sürekli kayıt</h2>
+    <span class="slate">02 / SEÇİLİ İŞLER</span>
+    <h2>vizörden geçenler</h2>
+  </div>
+  <div class="works">
+
+    <!-- İş 1 — Digiturk backstage -->
+    <div class="work reveal">
+      <button class="frame f1"
+              type="button"
+              data-youtube-id="Wey2H6wO_fQ"
+              data-cover="https://i.ytimg.com/vi/Wey2H6wO_fQ/maxresdefault.jpg"
+              aria-label="Digiturk backstage — videoyu oynat"></button>
+      <div class="slatebar"><div>yönetmen<b>Derhan &amp; Irmak</b></div><div>müşteri<b>Digiturk</b></div><div>yapımcı<b>Roots</b></div></div>
+      <div class="work-title">
+        <h3>digiturk</h3>
+        <p>Reklam seti backstage çekimi</p>
+      </div>
+    </div>
+
+    <!-- İş 2 — Akkök Holding 19 Mayıs -->
+    <div class="work reveal">
+      <button class="frame f2"
+              type="button"
+              data-youtube-id="hyCHOlKH2GU"
+              data-cover="https://i.ytimg.com/vi/hyCHOlKH2GU/maxresdefault.jpg"
+              aria-label="Akkök Holding 19 Mayıs — videoyu oynat"></button>
+      <div class="slatebar"><div>yönetmen<b>Derhan &amp; Irmak</b></div><div>müşteri<b>Akkök Holding</b></div><div>ajans<b>How to?</b></div></div>
+      <div class="work-title">
+        <h3>akkök holding — 19 mayıs</h3>
+        <p>Reklam çekimi — başrolde milli sporcu Buse Çavuşoğlu</p>
+      </div>
+    </div>
+
+    <!-- İş 3 — Tatilbudur backstage -->
+    <div class="work reveal">
+      <button class="frame f3"
+              type="button"
+              data-youtube-id="RrkE2DzBL_Y"
+              data-cover="https://i.ytimg.com/vi/RrkE2DzBL_Y/maxresdefault.jpg?v=2"
+              aria-label="Tatilbudur backstage — videoyu oynat"></button>
+      <div class="slatebar"><div>yönetmen<b>Derhan &amp; Irmak</b></div><div>müşteri<b>Tatilbudur</b></div><div>yapımcı<b>Multivitamin</b></div></div>
+      <div class="work-title">
+        <h3>tatilbudur</h3>
+        <p>Reklam seti backstage çekimi</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SCENE 03 — Hakkımızda ============ -->
+<section id="hakkimizda" data-scene="SCENE 03 — HAKKIMIZDA">
+  <div class="sec-head reveal">
+    <span class="slate">03 / KİMİZ</span>
+    <h2>Ekip, Set, Kayıt</h2>
   </div>
   <div class="about-grid">
     <div class="reveal">
       <p>
-        kayıtçılar, reklam prodüksiyonunun en ham anlarına tutkun iki arkadaşın kurduğu bir ekip.
+        kayıtçılar, reklam prodüksiyonunun en ham anlarına tutkun kişilerin bir araya geldiği bir topluluk.
         Set kurulurken, ışık patlarken, yönetmen "kestik" derken — <strong>asıl hikâyenin kamera arkasında
         yaşandığına</strong> inanıyoruz ve onu sinema diliyle kaydediyoruz.
       </p>
       <p>
         Backstage işin kalbimiz; ama freelance olarak <strong>reklam, tanıtım ve marka videoları</strong> da
-        çekiyoruz. Küçük ekip olmanın hızıyla, büyük prodüksiyon disipliniyle çalışıyoruz: konseptten kurguya,
+        çekiyoruz. Çevik bir topluluk olmanın hızıyla, büyük prodüksiyon disipliniyle çalışıyoruz: konseptten kurguya,
         renkten teslime kadar her kare bizden geçiyor.
       </p>
       <p>
         Topluluk gibi çalışıyoruz — markalarla değil, insanlarla iş yapıyoruz.
       </p>
     </div>
-    <!-- Ekip kartları: isimleri buradan düzenle (.name içeriği) -->
+    <!-- Disiplin kartları: topluluğun uzmanlık alanları -->
     <div class="crew reveal">
       <div class="crew-card">
-        <span class="role">Kamera / Yönetim</span>
-        <p class="name">Kayıtçı 01</p>
+        <span class="role">Disiplin</span>
+        <p class="name">kamera &amp; görüntü</p>
         <p>Vizörden bakan göz. Kompozisyon, ışık ve o "tam anı" yakalama refleksi.</p>
       </div>
       <div class="crew-card">
-        <span class="role">Kurgu / Renk</span>
-        <p class="name">Kayıtçı 02</p>
+        <span class="role">Disiplin</span>
+        <p class="name">kurgu &amp; renk</p>
         <p>Ham kareyi hikâyeye çeviren el. Ritim, ses tasarımı ve color grade.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SCENE 03 — Hizmetler ============ -->
-<section id="hizmetler" data-scene="SCENE 03 — HİZMETLER">
+<!-- ============ SCENE 04 — Hizmetler ============ -->
+<section id="hizmetler" data-scene="SCENE 04 — HİZMETLER">
   <div class="sec-head reveal">
-    <span class="slate">03 / NE YAPIYORUZ</span>
+    <span class="slate">04 / NE YAPIYORUZ</span>
     <h2>kayıt açık, üç koldan</h2>
   </div>
   <div class="services">
@@ -116,7 +169,7 @@
     <article class="svc reveal">
       <div class="tape"></div>
       <h3>reklam &amp; tanıtım filmi</h3>
-      <p>Marka ve ürün videoları: konsept geliştirme, çekim, kurgu ve renk dahil uçtan uca prodüksiyon. Küçük ekip, hızlı teslim, sinematik sonuç.</p>
+      <p>Marka ve ürün videoları: konsept geliştirme, çekim, kurgu ve renk dahil uçtan uca prodüksiyon. Çevik topluluk, hızlı teslim, sinematik sonuç.</p>
       <div class="fmt"><span>ürün</span><span>marka filmi</span><span>sosyal medya</span></div>
     </article>
     <article class="svc reveal">
@@ -126,81 +179,6 @@
       <div class="fmt"><span>etkinlik</span><span>klip</span><span>mekân tanıtımı</span></div>
     </article>
   </div>
-</section>
-
-<!-- ============ SCENE 04 — İşler (video kartları) ============
-     Her kartta .frame bir <button>'dır ve tıkla-oynat için:
-       data-youtube-id : oynatılacak videonun YouTube ID'si
-                         (örn https://youtu.be/AbCdEf12345 -> AbCdEf12345)
-       data-cover      : (opsiyonel) kapak görseli, örn assets/kapak1.jpg
-     data-cover boşsa .f1–.f4 gradient'i kapak yerine fallback olur.
-     Şu an örnek bir YouTube ID'si (Big Buck Bunny) ile çalışır;
-     kendi videolarını koymak için data-youtube-id değerlerini değiştir. -->
-<section id="isler" data-scene="SCENE 04 — SEÇİLİ İŞLER">
-  <div class="sec-head reveal">
-    <span class="slate">04 / SEÇİLİ İŞLER</span>
-    <h2>vizörden geçenler</h2>
-  </div>
-  <div class="works">
-
-    <!-- İş 1 -->
-    <div class="work reveal">
-      <button class="frame f1"
-              type="button"
-              data-youtube-id="aqz-KE-bpKQ"
-              data-cover=""
-              aria-label="Tungsten altında — videoyu oynat"></button>
-      <div class="slatebar"><div>roll<b>A07</b></div><div>scene<b>BACKSTAGE</b></div><div>take<b>03</b></div></div>
-      <div class="work-title">
-        <h3>tungsten altında</h3>
-        <p>Reklam seti backstage — 16 saatlik çekimin 90 saniyesi</p>
-      </div>
-    </div>
-
-    <!-- İş 2 -->
-    <div class="work reveal">
-      <button class="frame f2"
-              type="button"
-              data-youtube-id="aqz-KE-bpKQ"
-              data-cover=""
-              aria-label="Mavi saat — videoyu oynat"></button>
-      <div class="slatebar"><div>roll<b>B02</b></div><div>scene<b>TANITIM</b></div><div>take<b>01</b></div></div>
-      <div class="work-title">
-        <h3>mavi saat</h3>
-        <p>Marka tanıtım filmi — konsept + çekim + kurgu</p>
-      </div>
-    </div>
-
-    <!-- İş 3 -->
-    <div class="work reveal">
-      <button class="frame f3"
-              type="button"
-              data-youtube-id="aqz-KE-bpKQ"
-              data-cover=""
-              aria-label="Kestik demeden önce — videoyu oynat"></button>
-      <div class="slatebar"><div>roll<b>A12</b></div><div>scene<b>SET GÜNLÜĞÜ</b></div><div>take<b>07</b></div></div>
-      <div class="work-title">
-        <h3>kestik demeden önce</h3>
-        <p>Backstage serisi — sosyal medya kesimleri</p>
-      </div>
-    </div>
-
-    <!-- İş 4 -->
-    <div class="work reveal">
-      <button class="frame f4"
-              type="button"
-              data-youtube-id="aqz-KE-bpKQ"
-              data-cover=""
-              aria-label="Sahne arkası — videoyu oynat"></button>
-      <div class="slatebar"><div>roll<b>C04</b></div><div>scene<b>AFTERMOVIE</b></div><div>take<b>02</b></div></div>
-      <div class="work-title">
-        <h3>sahne arkası</h3>
-        <p>Etkinlik aftermovie — tek gün, iki kamera</p>
-      </div>
-    </div>
-
-  </div>
-  <p class="works-note reveal">// kareler temsilîdir — kendi videolarınızın embed'leri buraya gelecek</p>
 </section>
 
 <!-- ============ SCENE 05 — İletişim ============
@@ -214,7 +192,7 @@
     <p>Backstage, reklam filmi ya da bambaşka bir fikir — yaz, konuşalım. Genelde 24 saat içinde dönüyoruz.</p>
     <a class="contact-mail" href="mailto:merhaba@kayitcilar.com">merhaba@kayitcilar.com</a>
     <div class="socials">
-      <a href="#" aria-label="Instagram">instagram</a>
+      <a href="https://www.instagram.com/kayitcilar/" target="_blank" rel="noopener" aria-label="Instagram">instagram</a>
       <a href="#" aria-label="YouTube">youtube</a>
       <a href="#" aria-label="Vimeo">vimeo</a>
       <a href="#" aria-label="Behance">behance</a>
